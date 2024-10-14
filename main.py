@@ -1,6 +1,5 @@
 import curses
 
-# Dictionary of organelles and their definitions
 organelles = {
     "Nucleus": "The control center of the cell that contains the cell's DNA and regulates gene expression.",
     "Mitochondria": "The powerhouse of the cell, producing energy (ATP) through cellular respiration.",
@@ -18,43 +17,45 @@ organelles = {
     "Centrosome": "Organizes microtubules and plays a key role in cell division."
 }
 
-# Function to handle user input with curses
 def main(stdscr):
-    # Disable blinking cursor
     curses.curs_set(0)
 
-    # Get all the organelle names in a list for easy navigation
     organelle_list = list(organelles.keys())
     current_selection = 0
     selected_items = set()
 
     while True:
         stdscr.clear()
-        stdscr.addstr("Use arrow keys to navigate, space to select, 'q' to quit.\n\n")
+        stdscr.addstr("Use arrow keys to navigate, space/enter to select, 'q' to quit.\n\n")
 
-        # Loop through and display organelles with highlight for the selected one
         for idx, organelle in enumerate(organelle_list):
             if idx == current_selection:
-                stdscr.addstr(f"> {organelle}\n", curses.A_REVERSE)  # Highlight selected organelle
+                stdscr.addstr(f"> {organelle}\n", curses.A_REVERSE) 
             else:
                 stdscr.addstr(f"  {organelle}\n")
 
-        # Wait for user input
         key = stdscr.getch()
 
         if key == curses.KEY_UP and current_selection > 0:
-            current_selection -= 1  # Move selection up
+            current_selection -= 1  
         elif key == curses.KEY_DOWN and current_selection < len(organelle_list) - 1:
-            current_selection += 1  # Move selection down
+            current_selection += 1  
         elif key == ord(' '):
             selected_item = organelle_list[current_selection]
             selected_items.add(selected_item)
             stdscr.clear()
             stdscr.addstr(f"You selected: {selected_item}\n\n{organelles[selected_item]}\n")
             stdscr.addstr("\nPress any key to return to the menu.")
-            stdscr.getch()  # Wait for key press
+            stdscr.getch()  
+        elif key == ord('\n'):
+            selected_item = organelle_list[current_selection]
+            selected_items.add(selected_item)
+            stdscr.clear()
+            stdscr.addstr(f"You selected: {selected_item}\n\n{organelles[selected_item]}\n")
+            stdscr.addstr("\nPress any key to return to the menu.")
+            stdscr.getch()  
         elif key == ord('q'):
-            break  # Exit the program
+            break  
 
         stdscr.refresh()
 
