@@ -33,9 +33,13 @@ h1 {
     transition: background-color 0.3s;
 }
 
-#organelle-list li:hover, 
 #organelle-list li.selected {
     background-color: #007BFF;
+    color: #fff;
+}
+
+#organelle-list li:hover {
+    background-color: #6be9ff;
     color: #fff;
 }
 
