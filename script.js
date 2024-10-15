@@ -6,7 +6,6 @@ const organelles = {
     "Smooth Endoplasmic Reticulum": "Involved in the synthesis of lipids and detoxification of harmful substances.",
     "Golgi Apparatus": "Modifies, sorts, and packages proteins and lipids for transport or storage.",
     "Lysosome": "Contains digestive enzymes that break down waste materials and cellular debris.",
-    "Peroxisome": "Breaks down fatty acids and detoxifies harmful chemicals.",
     "Cytoskeleton": "Provides structural support and enables cell movement.",
     "Chloroplast": "Found in plant cells, responsible for converting sunlight into energy via photosynthesis.",
     "Cell Membrane": "A semipermeable barrier that controls what enters and leaves the cell.",
